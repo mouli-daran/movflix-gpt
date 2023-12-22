@@ -28,3 +28,6 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
   { identifier: "french", name: "French" },
 ];
+
+
+export const OPENAI_KEY = "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";
