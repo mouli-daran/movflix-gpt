@@ -1,13 +1,16 @@
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
-import usePopularMovies from '../hooks/usePopularMovies';
-import useTopRatedMovies from '../hooks/useTopRatedMovies';
-import useUpcomingMovies from '../hooks/useUpcomingMovies';
-import Header from './Header'
-import MainContainer from './MainContainer';
-import SecondaryContainer from './SecondaryContainer';
+import { useSelector } from "react-redux";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import { toggleSearchView } from "../utlils/searchSlice";
+import Header from "./Header";
+import MainContainer from "./MainContainer";
+import SearchContainer from "./SearchContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const BrowsePage = () => {
-
+  const showSearchPage = useSelector(store => store.search.showSearch);
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
@@ -16,10 +19,16 @@ const BrowsePage = () => {
   return (
     <div>
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      {showSearchPage ? (
+        <SearchContainer />
+      ) : (
+        <div>
+          <MainContainer />
+          <SecondaryContainer />
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default BrowsePage
+export default BrowsePage;
