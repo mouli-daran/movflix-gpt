@@ -18,6 +18,7 @@ const useUpcomingMovies = () => {
        }    
      
        useEffect(() => {
+        if(!upcomingMovies)
         getUpcomingMoviesList();
        },[]);
      

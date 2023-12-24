@@ -55,11 +55,11 @@ const handleLanguageChange = (e) => {
 }
 
   return (
-    <div className="absolute w-screen bg-gradient-to-b px-8 py-2 from-black z-10 flex justify-between">
-      <img className="w-44" src={APP_LOGO} alt="" />
+    <div className="absolute w-screen bg-gradient-to-b px-8 py-2 from-black z-10 flex flex-col justify-between  md:flex-row">
+      <img className="w-44 mx-auto md:mx-0" src={APP_LOGO} alt="" />
       {user && (
-        <div className="flex text-white gap-2 text-lg p-2">
-          {showSearch && <select className="bg-black p-2 h-11 rounded-lg mx-5" onChange={handleLanguageChange}>
+        <div className="flex justify-between text-white gap-4 text-lg p-2">
+          {showSearch && <select className="bg-gray-900 p-2 h-11 rounded-lg mx-5" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option key={lang.identifier} value={lang.identifier}>
                 {lang.name}
@@ -73,7 +73,7 @@ const handleLanguageChange = (e) => {
             {showSearch ? "Home" : "Search"}
           </button>
           <img
-            className="w-11 h-11 rounded-lg"
+            className="w-11 h-11 rounded-lg hidden md:block"
             src={user?.photoURL}
             alt="user logo"
           />

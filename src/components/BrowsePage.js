@@ -3,7 +3,6 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import { toggleSearchView } from "../utlils/searchSlice";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SearchContainer from "./SearchContainer";
@@ -21,7 +20,7 @@ const BrowsePage = () => {
       <Header />
       {showSearchPage ? (
         <SearchContainer />
-      ) : (
+      ) : ( 
         <div>
           <MainContainer />
           <SecondaryContainer />
